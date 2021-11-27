@@ -13,6 +13,14 @@ public class CropRow extends Field {
         this.cropRow =  new ArrayList<>();
     }
 
+    public List<Crop> getCropRow() {
+        return this.cropRow;
+    }
+
+    public Integer cropRowSize() {
+        return cropRow.size();
+    }
+
     public void addCrop(Crop crop) {
         cropRow.add(crop);
     }
