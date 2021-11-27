@@ -10,8 +10,9 @@ public class Chicken extends Animal implements Produce {
     }
 
     @Override
-    public void makeNoise() {
+    public String makeNoise() {
 
+        return null;
     }
 
     @Override

@@ -10,8 +10,9 @@ public class Horse extends Animal implements Rideable {
     }
 
     @Override
-    public void makeNoise() {
+    public String makeNoise() {
 
+        return null;
     }
 
     @Override

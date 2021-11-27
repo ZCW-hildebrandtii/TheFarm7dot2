@@ -11,8 +11,9 @@ public class Farmer extends Person implements Botanist, Rider {
     }
 
     @Override
-    public void makeNoise() {
+    public String makeNoise() {
 
+        return null;
     }
 
     @Override

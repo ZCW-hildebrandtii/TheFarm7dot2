@@ -10,8 +10,9 @@ public class Pilot extends Person implements Rider {
     }
 
     @Override
-    public void makeNoise() {
+    public String makeNoise() {
 
+        return null;
     }
 
     @Override
