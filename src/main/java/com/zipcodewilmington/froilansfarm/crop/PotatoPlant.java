@@ -7,4 +7,5 @@ public class PotatoPlant extends Crop {
     public Edible yield() {
         return null;
     }
+
 }
