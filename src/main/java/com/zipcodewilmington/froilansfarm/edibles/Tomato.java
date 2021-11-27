@@ -4,11 +4,19 @@ import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 
 public class Tomato implements Edible {
 
-    public Tomato(){
+    private Boolean isEdible;
 
+    public Tomato() {
+        this.isEdible = true;
     }
+
     @Override
     public boolean isEdible() {
-        return true;
+        return this.isEdible;
+    }
+
+    @Override
+    public void setEdible(Boolean isEdible) {
+        this.isEdible = isEdible;
     }
 }
