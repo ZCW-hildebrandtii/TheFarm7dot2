@@ -17,17 +17,15 @@ public class CropDusterTest {
 
         //  Given
 
-        String expectedvalueOperate = "The Tractor Machine is starting operation!";
-        String expectedvalueHarvest  = "The Tractor is harvesting";
+        String expectedvalueOperate = "The CropDuster Machine is starting operation!";
+        String expectedvalueHarvest  = "The CropDuster is harvesting";
         String expectedvalueFly = "The CropDuster Machine is FLYING over the field!!";
-
-
 
 
         // When
 
-        String actualvalueOperate = "The Tractor Machine is starting operation!";
-        String actualvalueHarvest  = "The Tractor is harvesting";
+        String actualvalueOperate = "The CropDuster Machine is starting operation!";
+        String actualvalueHarvest  = "The CropDuster is harvesting";
         String actualvalueFly = "The CropDuster Machine is FLYING over the field!!";
 
 
@@ -42,17 +40,15 @@ public class CropDusterTest {
 
 
 
-
-
     @Test
     public void operateTest() {
 
         //  Given
-        String expectedvalueOperate = "The Tractor Machine is starting operation!";
+        String expectedvalueOperate = "The CropDuster Machine is starting operation!";
 
         // When
 
-        String actualvalueOperate ="The Tractor Machine is starting operation!";
+        String actualvalueOperate ="The CropDuster Machine is starting operation!";
 
         // Then
         Assert.assertEquals(expectedvalueOperate,actualvalueOperate);
@@ -76,7 +72,6 @@ public class CropDusterTest {
 }
 
 
-
     @Test
     public void fertilize() {
 
@@ -95,32 +90,6 @@ public class CropDusterTest {
         Assert.assertEquals(expectedvalue,actualvalue);
 
     }
-
-
-
-
-
-
-
-//    public void testNonNullaryConstructor() {
-//        // given
-//        String expectedLine1 = "123 Gitlabs";
-//        String expectedLine2 = "";
-//        String expectedCity = "New Castle";
-//        String expectedState = "Delaware";
-//        String expectedZipcode = "19720";
-//
-//        // when
-//        Address address = new Address(expectedLine1, expectedLine2, expectedCity, expectedState, expectedZipcode);
-//
-//        // then
-//        Assert.assertEquals(expectedLine1, address.getAddressLine1());
-//        Assert.assertEquals(expectedLine2, address.getAddressLine2());
-//        Assert.assertEquals(expectedCity, address.getCity());
-//        Assert.assertEquals(expectedState, address.getState());
-//        Assert.assertEquals(expectedZipcode, address.getZipcode());
-//    }
-
 
 
 }
