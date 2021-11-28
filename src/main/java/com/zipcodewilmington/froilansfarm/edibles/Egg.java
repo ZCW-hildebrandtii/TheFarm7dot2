@@ -2,22 +2,20 @@ package com.zipcodewilmington.froilansfarm.edibles;
 
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 
-public class Carrot implements Edible {
+public class Egg implements Edible {
+    private Boolean edible;
 
-    // isEdible to be replaced to isEaten
-    private Boolean isEdible;
-
-    public Carrot() {
-        this.isEdible = true;
+    public Egg() {
+        this.edible = true;
     }
 
     @Override
     public boolean isEdible() {
-        return this.isEdible;
+        return this.edible;
     }
 
     @Override
     public void setEdible(Boolean isEdible) {
-        this.isEdible = isEdible;
+        this.edible = isEdible;
     }
 }

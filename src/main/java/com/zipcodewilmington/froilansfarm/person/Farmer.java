@@ -18,13 +18,14 @@ public class Farmer extends Person implements Botanist, Rider {
     }
 
     @Override
-    public void eat(Edible edible) {
+    public Boolean eat(Edible edible) {
+
+        return null;
     }
 
     @Override
-    public String makeNoise() {
-
-        return null;
+    public Object makeNoise() {
+        return "Hello";
     }
 
     @Override
@@ -43,6 +44,6 @@ public class Farmer extends Person implements Botanist, Rider {
     }
 
     public void harvest(FarmVehicle farmVehicle, CropRow cropRow) {
-        farmVehicle.harvest(cropRow);
+        farmVehicle.operate();
     }
 }
