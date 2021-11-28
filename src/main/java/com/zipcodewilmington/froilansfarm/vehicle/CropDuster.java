@@ -10,12 +10,9 @@ import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
 // 2a. "On `Monday`, his sister, `Froilanda` uses the `CropDuster` to `fly` over the `Field` and `fertilize` each of the `CropRow"`
 // 2b. Meaning that CropDuster can fertilize.
 
+
 public class CropDuster implements Aircraft, FarmVehicle {
-    private CropRow cropRow;
 
-    public CropDuster() {
-
-    }
 
 
     public void operate() {
@@ -24,6 +21,7 @@ public class CropDuster implements Aircraft, FarmVehicle {
     }
 
     public void fly() {
+
         System.out.println( "The CropDuster Machine is FLYING over the field!!");
     }
 

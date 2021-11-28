@@ -5,5 +5,8 @@ import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 
 public abstract class Vehicle implements FarmVehicle, Rideable {
 
+    public Vehicle() {
+
+    }
 
 }
