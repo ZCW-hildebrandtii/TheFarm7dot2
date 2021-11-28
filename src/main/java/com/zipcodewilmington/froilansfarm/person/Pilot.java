@@ -5,13 +5,15 @@ import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 
 public class Pilot extends Person implements Rider {
     @Override
-    public void eat(Edible edible) {
+    public Boolean eat(Edible edible) {
 
+        return null;
     }
 
     @Override
-    public void makeNoise() {
+    public Object makeNoise() {
 
+        return null;
     }
 
     @Override

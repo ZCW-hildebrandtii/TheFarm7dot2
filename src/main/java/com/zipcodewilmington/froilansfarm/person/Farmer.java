@@ -6,13 +6,15 @@ import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 
 public class Farmer extends Person implements Botanist, Rider {
     @Override
-    public void eat(Edible edible) {
+    public Boolean eat(Edible edible) {
 
+        return null;
     }
 
     @Override
-    public void makeNoise() {
+    public Object makeNoise() {
 
+        return null;
     }
 
     @Override
