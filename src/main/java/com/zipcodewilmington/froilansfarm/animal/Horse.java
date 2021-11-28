@@ -10,13 +10,13 @@ public class Horse extends Animal implements Rideable {
 
     @Override
     public Boolean eat(Edible edible) {
-        CarrotPlant carrot = new CarrotPlant();
-
-        if (carrot.hasBeenHarvested()) {
-            edible = carrot.yield();
+        if (edible == null) {
+            return false;
+        }
+        if (edible.isEdible()) {
+            edible.setEdible(false);
             return true;
         }
-
         return false;
     }
 
@@ -29,6 +29,7 @@ public class Horse extends Animal implements Rideable {
     public Boolean isMounted() {
 
         return mounted;
+
     }
 
     @Override
@@ -42,4 +43,5 @@ public class Horse extends Animal implements Rideable {
 
         this.mounted = mount;
     }
+
 }
