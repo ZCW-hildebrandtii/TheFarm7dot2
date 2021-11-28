@@ -1,6 +1,7 @@
 package com.zipcodewilmington.froilansfarm.person;
 
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
+import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 
 public class Pilot extends Person implements Rider {
@@ -16,12 +17,12 @@ public class Pilot extends Person implements Rider {
     }
 
     @Override
-    public void mount() {
+    public void mount(Rideable rideable) {
 
     }
 
     @Override
-    public void dismount() {
+    public void dismount(Rideable rideable) {
 
     }
 }

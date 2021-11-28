@@ -1,80 +1,142 @@
 package com.zipcodewilmington.froilansfarm.person;
 
+import com.zipcodewilmington.froilansfarm.animal.Horse;
+import com.zipcodewilmington.froilansfarm.crop.CornStalk;
+import com.zipcodewilmington.froilansfarm.edibles.Carrot;
+import com.zipcodewilmington.froilansfarm.edibles.EarOfCorn;
+import com.zipcodewilmington.froilansfarm.edibles.Potato;
+import com.zipcodewilmington.froilansfarm.edibles.Tomato;
+import com.zipcodewilmington.froilansfarm.farm.CropRow;
 import com.zipcodewilmington.froilansfarm.farm.Farm;
+import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class FarmerTest {
 
     @Test
-    public void makeNoiseTest(){
+    public void test_makeNoise(){
         //given
         Farmer farmer = new Farmer();
-        String expected = "HOWDY";
+        String expectedNoise = "HOWDY";
 
         //When
-        String actual = farmer.makeNoise();
+        String actualNoise = farmer.makeNoise();
 
         //then
-        Assert.assertEquals(expected,actual);
-
+        Assert.assertEquals(expectedNoise, actualNoise);
     }
 
     @Test
-    public void nameTest(){
+    public void test_farmer_name_by_constructor(){
         //Given
-        String expected = "Froilan";
-        Farmer farmer = new Farmer(expected);
+        String expectedName = "Froilan";
+        Farmer farmer = new Farmer(expectedName);
 
         //When
-        String actual = farmer.getName();
+        String actualName = farmer.getName();
 
         //Then
-        Assert.assertEquals(expected,actual);
+        Assert.assertEquals(expectedName, actualName);
     }
 
     @Test
-    public void setNameTest(){
+    public void test_farmer_name_by_setter(){
         //Given
-        String expected = "Froilan";
-        Person person = new Farmer(expected);
+        String expectedName = "Froilan";
+        Person person = new Farmer();
+        person.setName(expectedName);
 
         //When
-        String actual = person.getName();
+        String actualName = person.getName();
 
         //Then
-        Assert.assertEquals(expected,actual);
+        Assert.assertEquals(expectedName,actualName);
     }
 
     @Test
-    public void eatTest(){
+    public void test_eat_carrot(){
         //Given
-        Person froilan = new Farmer("Froilan");
-        Egg egg = new Egg();
-        Integer expected = 1;
+        Farmer farmer = new Farmer();
+        Carrot carrot = new Carrot();
+
         //When
-
-        froilan.eat(egg);
-        froilan.getMealList();
+        farmer.eat(carrot);
 
         //Then
-        Assert.assertTrue(farmer.meals.contains(egg));
-
+        Assert.assertTrue(carrot.isEaten());
     }
 
     @Test
-    public void eatTest(){
+    public void test_eat_tomato() {
         //Given
-        Person froilan = new Farmer("Froilan");
+        Farmer farmer = new Farmer();
         Tomato tomato = new Tomato();
-        Integer expected = 1;
-        //When
 
-        froilan.eat(egg);
-        froilan.getMealList();
+        //When
+        farmer.eat(tomato);
 
         //Then
-        Assert.assertTrue(farmer.meals.contains(egg));
-
-
+        Assert.assertTrue(tomato.isEaten());
     }
+
+    @Test
+    public void test_eat_earOfCorn() {
+        //Given
+        Farmer farmer = new Farmer();
+        EarOfCorn earOfCorn = new EarOfCorn();
+
+        //When
+        farmer.eat(earOfCorn);
+
+        //Then
+        Assert.assertTrue(earOfCorn.isEaten());
+    }
+
+    @Test
+    public void test_mount_rideable(){
+        //Given
+        Horse horse = new Horse();
+        boolean expected = true;
+
+        //When
+        Farmer farmer = new Farmer();
+        farmer.mount(horse);
+        boolean actual = horse.isMounted();
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_dismount_rideable(){
+        //Given
+        Horse horse = new Horse();
+        boolean expected = true;
+
+        //When
+        Farmer farmer = new Farmer();
+        farmer.dismount(horse);
+        boolean actual = horse.isDismounted();
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_plant_cornstalk(){
+        //Given
+        CornStalk cornStalk = new CornStalk();
+        CropRow cropRow = new CropRow();
+
+        //When
+        Farmer farmer = new Farmer();
+        farmer.plant(cornStalk, cropRow);
+        boolean actual = horse.isDismounted();
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+
+
+}

@@ -1,5 +1,7 @@
 package com.zipcodewilmington.froilansfarm.interfaces;
 
+import com.zipcodewilmington.froilansfarm.farm.CropRow;
+
 public interface Aircraft {
-    void fly();
+    void fly(CropRow cropRow);
 }

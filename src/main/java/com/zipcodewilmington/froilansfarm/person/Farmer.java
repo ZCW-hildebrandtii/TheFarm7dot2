@@ -1,13 +1,24 @@
 package com.zipcodewilmington.froilansfarm.person;
 
-import com.zipcodewilmington.froilansfarm.interfaces.Botanist;
-import com.zipcodewilmington.froilansfarm.interfaces.Edible;
-import com.zipcodewilmington.froilansfarm.interfaces.Rider;
+import com.zipcodewilmington.froilansfarm.crop.Crop;
+import com.zipcodewilmington.froilansfarm.farm.CropRow;
+import com.zipcodewilmington.froilansfarm.interfaces.*;
+import com.zipcodewilmington.froilansfarm.vehicle.Tractor;
 
 public class Farmer extends Person implements Botanist, Rider {
+
+    Rideable rideable;
+
+    public Farmer() {
+
+    }
+
+    public Farmer(String name) {
+        this.name = name;
+    }
+
     @Override
     public void eat(Edible edible) {
-
     }
 
     @Override
@@ -17,17 +28,21 @@ public class Farmer extends Person implements Botanist, Rider {
     }
 
     @Override
-    public void plant() {
+    public void plant(Crop crop, CropRow cropRow) {
 
     }
 
     @Override
-    public void mount() {
+    public void mount(Rideable rideable) {
 
     }
 
     @Override
-    public void dismount() {
+    public void dismount(Rideable rideable) {
 
+    }
+
+    public void harvest(FarmVehicle farmVehicle, CropRow cropRow) {
+        farmVehicle.harvest(cropRow);
     }
 }

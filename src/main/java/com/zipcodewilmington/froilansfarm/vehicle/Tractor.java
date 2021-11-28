@@ -1,13 +1,12 @@
 package com.zipcodewilmington.froilansfarm.vehicle;
 
-public class Tractor extends Vehicle {
-    @Override
-    public void harvest() {
+import com.zipcodewilmington.froilansfarm.farm.CropRow;
+import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
 
-    }
+public class Tractor extends Vehicle implements FarmVehicle {
 
     @Override
-    public void operate() {
+    public void harvest(CropRow cropRow) {
 
     }
 
