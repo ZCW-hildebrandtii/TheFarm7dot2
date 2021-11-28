@@ -12,28 +12,38 @@ import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
 
 
 public class CropDuster implements Aircraft, FarmVehicle {
+    private  String valueOperate = "The Tractor Machine is starting operation!";
+    private  String valueHarvest = "The Tractor is harvesting";
+    private  String valueFly = "The CropDuster Machine is FLYING over the field!!";
 
-
-
-    public void operate() {
-
-        System.out.println( "The CropDuster Machine is starting operation!");
+    public CropDuster (String valueOperate, String valueHarvest, String valueFly) {
+        this.valueOperate = valueOperate;
+        this.valueHarvest = valueHarvest;
+        this.valueFly=valueFly;
     }
 
-    public void fly() {
+    public String operate() {
 
-        System.out.println( "The CropDuster Machine is FLYING over the field!!");
+        return this.valueOperate;
     }
 
 
-    public void fertilize( CropRow cropRow) {
+    public String fly() {
 
-        System.out.println( "All crops have been fertilized " + cropRow);
+      return this.valueFly;
+
+    }
+
+
+    public static String fertilize(CropRow cropRow) {
+
+        return "All crops have been fertilized " + cropRow ;
     }
 
 
     @Override
     public String toString () {
-        return "CropDuster";
+
+        return "CropDuster{}";
     }
 }

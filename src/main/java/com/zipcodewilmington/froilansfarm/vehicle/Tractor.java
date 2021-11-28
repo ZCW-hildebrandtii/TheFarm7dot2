@@ -12,24 +12,34 @@ import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
 
 public class Tractor implements FarmVehicle {
 
+    private  String valueOperate = "The Tractor Machine is starting operation!";
+    private  String valueHarvest = "The Tractor is harvesting";
 
-    public void harvest( Crop crop) {
 
-        System.out.println( "Tractor is harvesting " + crop);
+    public Tractor(String valueOperate, String valueHarvest) {
+        this.valueOperate = valueOperate;
+        this.valueHarvest= valueHarvest;
+    }
+
+    public Crop harvest(Crop crop) {
+
+        System.out.println(valueHarvest);
+        return crop;
 
     }
 
 
-    public void operate() {
+    public String operate() {
 
-        System.out.println( "The Tractor Machine is starting operation!");
+        return valueOperate;
+
     }
 
 
     @Override
     public String toString () {
 
-        return "Tractor";
+        return "Tractor{}";
     }
 
 
