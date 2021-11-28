@@ -1,5 +1,6 @@
 package com.zipcodewilmington.froilansfarm.crop;
 
+import com.zipcodewilmington.froilansfarm.farm.CropRow;
 import com.zipcodewilmington.froilansfarm.interfaces.Produce;
 
 public abstract class Crop implements Produce {
@@ -9,6 +10,14 @@ public abstract class Crop implements Produce {
     public Crop() {
         this.hasBeenFertilized = false;
         this.hasBeenHarvested = false;
+    }
+
+    public void harvest() {
+        hasBeenHarvested = true;
+    }
+
+    public void fertilize() {
+        hasBeenFertilized = true;
     }
 
     public Boolean hasBeenHarvested() {

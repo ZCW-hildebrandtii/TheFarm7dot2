@@ -3,7 +3,6 @@ package com.zipcodewilmington.froilansfarm.vehicle;
 import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 
-
 // Rider` can `mount` and `dismount` a `Rideable` object.
 // Vehicle` are `NoiseMaker` and `Rideable
 
@@ -38,5 +37,4 @@ public abstract class Vehicle implements FarmVehicle, Rideable {
 //
 //        return true;
 //    }
-
 }
