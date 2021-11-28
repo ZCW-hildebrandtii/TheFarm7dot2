@@ -2,18 +2,19 @@ package com.zipcodewilmington.froilansfarm.vehicle;
 
 import com.zipcodewilmington.froilansfarm.farm.CropRow;
 import com.zipcodewilmington.froilansfarm.interfaces.Aircraft;
+import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
 
 
-public class CropDuster extends Vehicle implements Aircraft {
+// 1a. "CropDuster` is a `FarmVehicle` and `Aircraft` which can `fertilize` a `CropRow`"
+// 1b. Meaning that CropDuster can operate and Fly.
+// 2a. "On `Monday`, his sister, `Froilanda` uses the `CropDuster` to `fly` over the `Field` and `fertilize` each of the `CropRow"`
+// 2b. Meaning that CropDuster can fertilize.
 
-    //CropDuster` is a `FarmVehicle` and `Aircraft` which can `fertilize` a `CropRow`
-    // His sister, `Froilanda`, is a `Pilot` who uses a `CropDuster
-    // On `Monday`, his sister, `Froilanda` uses the `CropDuster` to `fly` over the `Field` and `fertilize` each of the `CropRow`
+public class CropDuster implements Aircraft, FarmVehicle {
+    private CropRow cropRow;
 
+    public CropDuster() {
 
-    public void fly() {
-
-        System.out.println( "The CropDuster Machine is FLYING over the field!!");
     }
 
 
@@ -22,12 +23,15 @@ public class CropDuster extends Vehicle implements Aircraft {
         System.out.println( "The CropDuster Machine is starting operation!");
     }
 
+    public void fly() {
+        System.out.println( "The CropDuster Machine is FLYING over the field!!");
+    }
+
 
     public void fertilize( CropRow cropRow) {
 
         System.out.println( "All crops have been fertilized " + cropRow);
     }
-
 
 
     @Override
