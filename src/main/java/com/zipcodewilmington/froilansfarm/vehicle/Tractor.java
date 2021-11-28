@@ -1,8 +1,13 @@
 package com.zipcodewilmington.froilansfarm.vehicle;
 
+import com.zipcodewilmington.froilansfarm.crop.Crop;
+
 public class Tractor extends Vehicle {
-    @Override
-    public void harvest() {
+
+
+
+
+    public void harvest( Crop crop) {
 
     }
 
@@ -13,11 +18,16 @@ public class Tractor extends Vehicle {
 
     @Override
     public Boolean isMounted() {
+
         return null;
     }
 
     @Override
     public Boolean isDismounted() {
+
         return null;
     }
+
+
+
 }
