@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Field {
 
-    List<CropRow> cropRows;
+    private List<CropRow> cropRows;
 
     public Field(List<CropRow> cropRows) {
         this.cropRows = new ArrayList<>();
