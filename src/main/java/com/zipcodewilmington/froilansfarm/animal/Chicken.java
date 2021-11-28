@@ -11,7 +11,7 @@ public class Chicken extends Animal implements Produce {
 
     @Override
     public void makeNoise() {
-
+        System.out.println("bwak");
     }
 
     @Override
