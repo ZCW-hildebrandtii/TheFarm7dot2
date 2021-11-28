@@ -5,6 +5,9 @@ import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 
 public class Horse extends Animal implements Rideable {
+
+    private boolean mounted;
+
     @Override
     public Boolean eat(Edible edible) {
         CarrotPlant carrot = new CarrotPlant();
@@ -25,14 +28,18 @@ public class Horse extends Animal implements Rideable {
     @Override
     public Boolean isMounted() {
 
-
-        return false;
+        return mounted;
     }
 
     @Override
     public Boolean isDismounted() {
 
+        return mounted;
+    }
 
-        return false;
+    @Override
+    public void setMounted(boolean mount) {
+
+        this.mounted = mount;
     }
 }

@@ -2,15 +2,19 @@ package com.zipcodewilmington.froilansfarm.person;
 
 import com.zipcodewilmington.froilansfarm.animal.Horse;
 import com.zipcodewilmington.froilansfarm.crop.CornStalk;
+import com.zipcodewilmington.froilansfarm.crop.Crop;
 import com.zipcodewilmington.froilansfarm.edibles.Carrot;
 import com.zipcodewilmington.froilansfarm.edibles.EarOfCorn;
-import com.zipcodewilmington.froilansfarm.edibles.Potato;
 import com.zipcodewilmington.froilansfarm.edibles.Tomato;
 import com.zipcodewilmington.froilansfarm.farm.CropRow;
-import com.zipcodewilmington.froilansfarm.farm.Farm;
-import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
+import com.zipcodewilmington.froilansfarm.farm.Field;
+import com.zipcodewilmington.froilansfarm.interfaces.Edible;
+import com.zipcodewilmington.froilansfarm.vehicle.CropDuster;
+import com.zipcodewilmington.froilansfarm.vehicle.Tractor;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.List;
 
 public class FarmerTest {
 
@@ -21,7 +25,7 @@ public class FarmerTest {
         String expectedNoise = "HOWDY";
 
         //When
-        String actualNoise = farmer.makeNoise();
+        Object actualNoise = farmer.makeNoise();
 
         //then
         Assert.assertEquals(expectedNoise, actualNoise);
@@ -64,7 +68,7 @@ public class FarmerTest {
         farmer.eat(carrot);
 
         //Then
-        Assert.assertTrue(carrot.isEaten());
+        Assert.assertTrue(carrot.isEdible());
     }
 
     @Test
@@ -77,7 +81,7 @@ public class FarmerTest {
         farmer.eat(tomato);
 
         //Then
-        Assert.assertTrue(tomato.isEaten());
+        Assert.assertTrue(tomato.isEdible());
     }
 
     @Test
@@ -90,7 +94,7 @@ public class FarmerTest {
         farmer.eat(earOfCorn);
 
         //Then
-        Assert.assertTrue(earOfCorn.isEaten());
+        Assert.assertTrue(earOfCorn.isEdible());
     }
 
     @Test
@@ -112,7 +116,7 @@ public class FarmerTest {
     public void test_dismount_rideable(){
         //Given
         Horse horse = new Horse();
-        boolean expected = true;
+        boolean expected = false;
 
         //When
         Farmer farmer = new Farmer();
@@ -129,13 +133,44 @@ public class FarmerTest {
         CornStalk cornStalk = new CornStalk();
         CropRow cropRow = new CropRow();
 
-        //When
+        //When - Plant three cornstalk in crop row
         Farmer farmer = new Farmer();
-        farmer.plant(cornStalk, cropRow);
-        boolean actual = horse.isDismounted();
+        farmer.plant(new CornStalk(), cropRow);
+        farmer.plant(new CornStalk(), cropRow);
+        farmer.plant(new CornStalk(), cropRow);
 
         //Then
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(3, cropRow.getCropRow().size());
+        for (Crop crop : cropRow.getCropRow()) {
+            Assert.assertFalse(crop.hasBeenFertilized());
+            Assert.assertFalse(crop.hasBeenHarvested());
+        }
+    }
+
+    @Test
+    public void test_harvest_cornstalk(){
+        //Given - Plant 5 corn stlaks in the given crop-row and fertilize it
+        Farmer froilan = new Farmer("Froilan");
+        Pilot froilanda = new Pilot("Froilanda");
+
+        Field cropField = new Field(5);
+        CropRow cropRow = cropField.getCropRows().get(0);
+        froilan.plant(new CornStalk(), cropRow);
+        froilan.plant(new CornStalk(), cropRow);
+        froilan.plant(new CornStalk(), cropRow);
+        froilan.plant(new CornStalk(), cropRow);
+        froilan.plant(new CornStalk(), cropRow);
+        froilanda.fertilize(new CropDuster(null, null, null), cropField);
+
+
+        //When - Plant three cornstalk in crop row
+        List<Edible> corns = froilan.harvest(new Tractor("", ""), cropRow);
+
+        //Then
+        Assert.assertEquals(5, corns.size());
+        for (Edible edible : corns) {
+            Assert.assertEquals("EarOfCorn", edible.getClass().getSimpleName());
+        }
     }
 
 

@@ -1,8 +1,12 @@
 package com.zipcodewilmington.froilansfarm.vehicle;
 
 import com.zipcodewilmington.froilansfarm.farm.CropRow;
+import com.zipcodewilmington.froilansfarm.farm.Field;
 import com.zipcodewilmington.froilansfarm.interfaces.Aircraft;
+import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
+
+import java.util.List;
 
 // 1a. "CropDuster` is a `FarmVehicle` and `Aircraft` which can `fertilize` a `CropRow`"
 // 1b. Meaning that CropDuster can operate and Fly.
@@ -11,6 +15,7 @@ import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
 
 
 public class CropDuster implements Aircraft, FarmVehicle {
+
     private  String valueOperate = "The Tractor Machine is starting operation!";
     private  String valueHarvest = "The Tractor is harvesting";
     private  String valueFly = "The CropDuster Machine is FLYING over the field!!";
@@ -21,23 +26,20 @@ public class CropDuster implements Aircraft, FarmVehicle {
         this.valueFly=valueFly;
     }
 
-    public String operate() {
+    public List<Edible> operate(CropRow cropRow) {
 
-        return this.valueOperate;
+        return cropRow.harvestCropRow();
     }
 
 
-    public String fly() {
-
-      return this.valueFly;
+    public String fly(Field field) {
+        int rowIndex = 1;
+        for (CropRow cropRow : field.getCropRows()) {
+            cropRow.fertilizeCropRow();
+            System.out.println(cropRow.cropRowSize() + " crops have been fertilized in CropRow: " + rowIndex++);
+        }
+        return "All crops have been fertilized in CropRow";
     }
-
-
-    public static String fertilize(CropRow cropRow) {
-
-        return "All crops have been fertilized " + cropRow ;
-    }
-
 
     @Override
     public String toString () {

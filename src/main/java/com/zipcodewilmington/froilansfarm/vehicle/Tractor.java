@@ -1,6 +1,10 @@
 package com.zipcodewilmington.froilansfarm.vehicle;
 import com.zipcodewilmington.froilansfarm.crop.Crop;
+import com.zipcodewilmington.froilansfarm.farm.CropRow;
+import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
+
+import java.util.List;
 
 //public class Tractor extends Vehicle
 
@@ -23,14 +27,15 @@ public class Tractor implements FarmVehicle {
     public Crop harvest(Crop crop) {
 
         System.out.println(valueHarvest);
+        crop.setHasBeenHarvested(true);
         return crop;
     }
 
 
-    public String operate() {
+    public List<Edible> operate(CropRow cropRow) {
 
-        return valueOperate;
-
+        List<Edible> edibles = cropRow.harvestCropRow();
+        return edibles;
     }
 
 
@@ -39,7 +44,4 @@ public class Tractor implements FarmVehicle {
 
         return "Tractor{}";
     }
-
-
-
 }
