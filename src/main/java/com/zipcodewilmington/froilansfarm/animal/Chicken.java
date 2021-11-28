@@ -8,13 +8,13 @@ import com.zipcodewilmington.froilansfarm.interfaces.Produce;
 public class Chicken extends Animal implements Produce {
     @Override
     public Boolean eat(Edible edible) {
-        CornStalk corn = new CornStalk();
-
-        if (corn.hasBeenHarvested()) {
-            edible = corn.yield();
+        if (edible == null) {
+            return false;
+        }
+        if (edible.isEdible()) {
+            edible.setEdible(false);
             return true;
         }
-
         return false;
     }
 

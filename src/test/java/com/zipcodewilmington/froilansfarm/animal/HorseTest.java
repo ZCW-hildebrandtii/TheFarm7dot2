@@ -1,6 +1,7 @@
 package com.zipcodewilmington.froilansfarm.animal;
 
 import com.zipcodewilmington.froilansfarm.crop.CornStalk;
+import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -18,12 +19,13 @@ public class HorseTest {
     @Test
     public void eatTest() {
         //given
-        Chicken chicken = new Chicken();
-        CornStalk corn = new CornStalk();
+        Horse horse = new Horse();
+        CornStalk cornStalk = new CornStalk();
 
         //when
-        corn.setHasBeenHarvested(true);
-        Boolean actual = chicken.eat(null);
+        cornStalk.setHasBeenFertilized(true);
+        Edible earOfCorn = cornStalk.yield();
+        Boolean actual = horse.eat(earOfCorn);
 
         //assert
         Assert.assertEquals(true, actual);
@@ -32,10 +34,10 @@ public class HorseTest {
     @Test
     public void eatTestFalse() {
         //given
-        Chicken chicken = new Chicken();
+        Horse horse = new Horse();
 
         //when
-        Boolean actual = chicken.eat(null);
+        Boolean actual = horse.eat(null);
 
         //assert
         Assert.assertEquals(false, actual);
