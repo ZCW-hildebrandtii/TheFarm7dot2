@@ -13,7 +13,7 @@ import java.util.List;
 // Comment : meaning that FarmVehicle can ONLY Operate ,but Tractor can operate and harvest.
 
 
-public class Tractor implements FarmVehicle {
+public class Tractor extends Vehicle {
 
     private  String valueOperate = "The Tractor Machine is starting operation!";
     private  String valueHarvest = "The Tractor is harvesting";
@@ -22,6 +22,10 @@ public class Tractor implements FarmVehicle {
     public Tractor(String valueOperate, String valueHarvest) {
         this.valueOperate = valueOperate;
         this.valueHarvest= valueHarvest;
+    }
+
+    public Tractor() {
+
     }
 
     public Crop harvest(Crop crop) {
@@ -43,5 +47,20 @@ public class Tractor implements FarmVehicle {
     public String toString () {
 
         return "Tractor{}";
+    }
+
+    @Override
+    public void setMounted(boolean mount) {
+
+    }
+
+    @Override
+    public Boolean isMounted() {
+        return null;
+    }
+
+    @Override
+    public Object makeNoise() {
+        return null;
     }
 }

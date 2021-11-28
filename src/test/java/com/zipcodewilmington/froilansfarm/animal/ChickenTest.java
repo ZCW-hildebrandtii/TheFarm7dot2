@@ -31,7 +31,7 @@ public class ChickenTest {
         Chicken chicken = new Chicken();
 
         //when
-        chicken.setEggFertilized(true);
+        chicken.setHasBeenFertilized(true);
         Edible actual = chicken.yield();
 
         //assert

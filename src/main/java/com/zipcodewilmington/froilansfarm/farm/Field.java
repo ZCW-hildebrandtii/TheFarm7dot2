@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Field {
 
-    List<CropRow> cropRows = new ArrayList<>();
+    List<CropRow> cropRows;
 
     public Field(List<CropRow> cropRows) {
-        this.cropRows = cropRows;
+        this.cropRows = new ArrayList<>();
     }
 
     public Field(int noOfCropRow) {

@@ -4,5 +4,4 @@ public interface Rideable {
 
     void setMounted(boolean mount);
     Boolean isMounted();
-    Boolean isDismounted();
 }

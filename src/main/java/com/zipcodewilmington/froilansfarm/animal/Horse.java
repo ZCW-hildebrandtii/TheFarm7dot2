@@ -9,18 +9,6 @@ public class Horse extends Animal implements Rideable {
     private boolean mounted;
 
     @Override
-    public Boolean eat(Edible edible) {
-        if (edible == null) {
-            return false;
-        }
-        if (edible.isEdible()) {
-            edible.setEdible(false);
-            return true;
-        }
-        return false;
-    }
-
-    @Override
     public String makeNoise() {
         return "neigh";
     }
@@ -29,18 +17,10 @@ public class Horse extends Animal implements Rideable {
     public Boolean isMounted() {
 
         return mounted;
-
-    }
-
-    @Override
-    public Boolean isDismounted() {
-
-        return mounted;
     }
 
     @Override
     public void setMounted(boolean mount) {
-
         this.mounted = mount;
     }
 

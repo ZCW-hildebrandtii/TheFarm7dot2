@@ -46,24 +46,17 @@ public class VehicleTest {
     }
 
 
-//
-//    @Test
-//    public void isMounted() {
-//
-//        Vehicle vehicle = new Vehicle();
-//        assertTrue(Vehicle.isMounted());
-//        assertFalse(Vehicle.isMounted());
-//
-//
-//    }
-//
 
-//    @Test
-//    public void isDismounted() {
-//
-//        Vehicle vehicle = new Vehicle();
-//        assertTrue(Vehicle.isMounted());
-//        assertFalse(Vehicle.isMounted());
-//    }
+    @Test
+    public void isMountedTest() {
+
+        Vehicle vehicle = new Tractor();
+        assertTrue(vehicle.isMounted());
+        assertFalse(vehicle.isMounted());
+
+    }
+
+
+
 
 }

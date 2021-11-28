@@ -6,7 +6,7 @@ public class Egg implements Edible {
     private Boolean edible;
 
     public Egg() {
-        this.edible = true;
+        this.edible = false;
     }
 
     @Override

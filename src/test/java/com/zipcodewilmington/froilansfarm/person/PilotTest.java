@@ -121,7 +121,7 @@ public class PilotTest {
         //When
         Farmer farmer = new Farmer();
         farmer.dismount(horse);
-        boolean actual = horse.isDismounted();
+        boolean actual = horse.isMounted();
 
         //Then
         Assert.assertEquals(expected, actual);

@@ -14,7 +14,7 @@ import java.util.List;
 // 2b. Meaning that CropDuster can fertilize.
 
 
-public class CropDuster implements Aircraft, FarmVehicle {
+public class CropDuster extends Vehicle implements Aircraft {
 
     private  String valueOperate = "The Tractor Machine is starting operation!";
     private  String valueHarvest = "The Tractor is harvesting";
@@ -47,4 +47,13 @@ public class CropDuster implements Aircraft, FarmVehicle {
         return "CropDuster{}";
     }
 
+    @Override
+    public Object makeNoise() {
+        return null;
+    }
+
+    @Override
+    public void setMounted(boolean mount) {
+
+    }
 }
