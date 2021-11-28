@@ -11,23 +11,22 @@ public class CropDuster extends Vehicle implements Aircraft {
     // On `Monday`, his sister, `Froilanda` uses the `CropDuster` to `fly` over the `Field` and `fertilize` each of the `CropRow`
 
 
-
     public void fly() {
 
-
+        System.out.println( "The CropDuster Machine is FLYING over the field!!");
     }
 
 
     public void operate() {
 
+        System.out.println( "The CropDuster Machine is starting operation!");
     }
 
 
-    public void fertilize( CropRow Crop) {
+    public void fertilize( CropRow cropRow) {
 
-        return null;
+        System.out.println( "All crops have been fertilized " + cropRow);
     }
-
 
 
 
