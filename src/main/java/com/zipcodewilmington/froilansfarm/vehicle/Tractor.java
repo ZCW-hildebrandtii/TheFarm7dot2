@@ -1,6 +1,7 @@
 package com.zipcodewilmington.froilansfarm.vehicle;
 import com.zipcodewilmington.froilansfarm.crop.Crop;
 import com.zipcodewilmington.froilansfarm.farm.CropRow;
+import com.zipcodewilmington.froilansfarm.farm.Farm;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
 
@@ -62,5 +63,10 @@ public class Tractor extends Vehicle {
     @Override
     public Object makeNoise() {
         return null;
+    }
+
+    @Override
+    public void operate(Farm farm) {
+
     }
 }

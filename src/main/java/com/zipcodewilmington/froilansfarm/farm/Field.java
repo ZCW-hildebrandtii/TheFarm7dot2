@@ -17,6 +17,10 @@ public class Field {
         }
     }
 
+    public Field() {
+
+    }
+
     public void add(List<CropRow> cropRows) {
         cropRows.addAll(cropRows);
     }

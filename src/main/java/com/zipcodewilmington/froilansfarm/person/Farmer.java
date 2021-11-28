@@ -32,7 +32,7 @@ public class Farmer extends Person implements Botanist, Rider {
         rideable.setMounted(false);
     }
 
-    public List<Edible> harvest(FarmVehicle farmVehicle, CropRow cropRow) {
-        return farmVehicle.operate(cropRow);
-    }
+//    public List<Edible> harvest(FarmVehicle farmVehicle, CropRow cropRow) {
+//        return farmVehicle.operate(cropRow);
+//    }
 }

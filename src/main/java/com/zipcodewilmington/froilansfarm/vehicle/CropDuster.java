@@ -1,6 +1,7 @@
 package com.zipcodewilmington.froilansfarm.vehicle;
 
 import com.zipcodewilmington.froilansfarm.farm.CropRow;
+import com.zipcodewilmington.froilansfarm.farm.Farm;
 import com.zipcodewilmington.froilansfarm.farm.Field;
 import com.zipcodewilmington.froilansfarm.interfaces.Aircraft;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
@@ -24,6 +25,10 @@ public class CropDuster extends Vehicle implements Aircraft {
         this.valueOperate = valueOperate;
         this.valueHarvest = valueHarvest;
         this.valueFly=valueFly;
+    }
+
+    public CropDuster() {
+
     }
 
     public List<Edible> operate(CropRow cropRow) {
@@ -54,6 +59,11 @@ public class CropDuster extends Vehicle implements Aircraft {
 
     @Override
     public void setMounted(boolean mount) {
+
+    }
+
+    @Override
+    public void operate(Farm farm) {
 
     }
 }

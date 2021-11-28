@@ -147,31 +147,29 @@ public class FarmerTest {
         }
     }
 
-    @Test
-    public void test_harvest_cornstalk(){
-        //Given - Plant 5 corn stlaks in the given crop-row and fertilize it
-        Farmer froilan = new Farmer("Froilan");
-        Pilot froilanda = new Pilot("Froilanda");
-
-        Field cropField = new Field(5);
-        CropRow cropRow = cropField.getCropRows().get(0);
-        froilan.plant(new CornStalk(), cropRow);
-        froilan.plant(new CornStalk(), cropRow);
-        froilan.plant(new CornStalk(), cropRow);
-        froilan.plant(new CornStalk(), cropRow);
-        froilan.plant(new CornStalk(), cropRow);
-        froilanda.fertilize(new CropDuster(null, null, null), cropField);
-
-
-        //When - Plant three cornstalk in crop row
-        List<Edible> corns = froilan.harvest(new Tractor("", ""), cropRow);
-
-        //Then
-        Assert.assertEquals(5, corns.size());
-        for (Edible edible : corns) {
-            Assert.assertEquals("EarOfCorn", edible.getClass().getSimpleName());
-        }
-    }
-
-
+//    @Test
+//    public void test_harvest_cornstalk(){
+//        //Given - Plant 5 corn stlaks in the given crop-row and fertilize it
+//        Farmer froilan = new Farmer("Froilan");
+//        Pilot froilanda = new Pilot("Froilanda");
+//
+//        Field cropField = new Field(5);
+//        CropRow cropRow = cropField.getCropRows().get(0);
+//        froilan.plant(new CornStalk(), cropRow);
+//        froilan.plant(new CornStalk(), cropRow);
+//        froilan.plant(new CornStalk(), cropRow);
+//        froilan.plant(new CornStalk(), cropRow);
+//        froilan.plant(new CornStalk(), cropRow);
+//        froilanda.fertilize(new CropDuster(null, null, null), cropField);
+//
+//
+//        //When - Plant three cornstalk in crop row
+//        List<Edible> corns = froilan.harvest(new Tractor("", ""), cropRow);
+//
+//        //Then
+//        Assert.assertEquals(5, corns.size());
+//        for (Edible edible : corns) {
+//            Assert.assertEquals("EarOfCorn", edible.getClass().getSimpleName());
+//        }
 }
+
