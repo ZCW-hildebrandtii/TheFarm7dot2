@@ -1,26 +1,38 @@
 package com.zipcodewilmington.froilansfarm.animal;
 
+import com.zipcodewilmington.froilansfarm.crop.CarrotPlant;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 
 public class Horse extends Animal implements Rideable {
     @Override
-    public void eat(Edible edible) {
+    public Boolean eat(Edible edible) {
+        CarrotPlant carrot = new CarrotPlant();
 
+        if (carrot.hasBeenHarvested()) {
+            edible = carrot.yield();
+            return true;
+        }
+
+        return false;
     }
 
     @Override
-    public void makeNoise() {
-
+    public String makeNoise() {
+        return "neigh";
     }
 
     @Override
     public Boolean isMounted() {
-        return null;
+
+
+        return false;
     }
 
     @Override
     public Boolean isDismounted() {
-        return null;
+
+
+        return false;
     }
 }
