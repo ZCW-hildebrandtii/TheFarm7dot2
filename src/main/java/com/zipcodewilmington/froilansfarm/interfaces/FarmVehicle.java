@@ -1,9 +1,6 @@
 package com.zipcodewilmington.froilansfarm.interfaces;
 
-import com.zipcodewilmington.froilansfarm.farm.CropRow;
 import com.zipcodewilmington.froilansfarm.farm.Farm;
-
-import java.util.List;
 
 public interface FarmVehicle {
     // FarmVehicle` can `operate` on a `Farm`

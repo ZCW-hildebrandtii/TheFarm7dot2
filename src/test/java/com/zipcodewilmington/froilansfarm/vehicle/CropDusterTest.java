@@ -1,7 +1,11 @@
 package com.zipcodewilmington.froilansfarm.vehicle;
 
 
+import com.zipcodewilmington.froilansfarm.crop.CornStalk;
 import com.zipcodewilmington.froilansfarm.farm.CropRow;
+import com.zipcodewilmington.froilansfarm.farm.Farm;
+import com.zipcodewilmington.froilansfarm.person.Farmer;
+import com.zipcodewilmington.froilansfarm.person.Pilot;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -89,6 +93,35 @@ public class CropDusterTest {
         // Then
         Assert.assertEquals(expectedvalue,actualvalue);
 
+    }
+
+
+
+    @Test
+    public void test_operate_farm() {
+
+        //Given - Plant 5 corn stlaks in the given crop-row and fertilize it
+        Farmer froilan = new Farmer("Froilan");
+        Pilot froilanda = new Pilot("Froilanda");
+
+        Farm farm = Farm.getInstance();
+        CropRow cropRow = farm.getField().getCropRows().get(0);
+        froilan.plant(new CornStalk(), cropRow);
+        froilan.plant(new CornStalk(), cropRow);
+        froilan.plant(new CornStalk(), cropRow);
+        froilan.plant(new CornStalk(), cropRow);
+        froilan.plant(new CornStalk(), cropRow);
+        froilanda.fertilize(new CropDuster(), farm.getField());
+
+
+        //When - Plant three cornstalk in crop row
+        froilan.harvest(new CropDuster(), farm);
+
+        //Then
+        Assert.assertEquals(5, farm.getField().getCropRows().size());
+        for (CropRow cropRowItr : farm.getField().getCropRows()) {
+            Assert.assertEquals(0, cropRowItr.cropRowSize().intValue());
+        }
     }
 
 

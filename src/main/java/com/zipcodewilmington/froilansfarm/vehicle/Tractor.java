@@ -1,10 +1,8 @@
 package com.zipcodewilmington.froilansfarm.vehicle;
-import com.zipcodewilmington.froilansfarm.crop.Crop;
+
 import com.zipcodewilmington.froilansfarm.farm.CropRow;
 import com.zipcodewilmington.froilansfarm.farm.Farm;
-import com.zipcodewilmington.froilansfarm.farm.Field;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
-import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
 
 import java.util.List;
 
@@ -18,13 +16,6 @@ import java.util.List;
 public class Tractor extends Vehicle {
 
     private  String valueOperate = "The Tractor Machine is starting operation!";
-    private  String valueHarvest = "The Tractor is harvesting";
-
-
-    public Tractor(String valueOperate, String valueHarvest) {
-        this.valueOperate = valueOperate;
-        this.valueHarvest= valueHarvest;
-    }
 
     public Tractor() {
 
@@ -33,12 +24,19 @@ public class Tractor extends Vehicle {
     @Override
     public void operate(Farm farm) {
 
-        for (Field field : farm.getFields()) {
-            for (CropRow cropRow : field.getCropRows()) {
-                for (Crop crop : cropRow.getCropRow()) {
-                    System.out.println("Harvesting " + crop.getClass());
-                    crop.setHasBeenHarvested(true);
+        System.out.println(valueOperate);
+        int cropRowIndex = 1;
+        for (CropRow cropRow : farm.getField().getCropRows()) {
+
+            if (cropRow.getCropRow().size() > 0) {
+                List<Edible> harvestedEdibles = cropRow.harvestCropRow();
+                System.out.println(harvestedEdibles.size() + " " + harvestedEdibles.get(0).getClass().getSimpleName() + " produced from Crop Row: " + cropRowIndex);
+                for (Edible edible : harvestedEdibles) {
+                    farm.addFood(edible);
                 }
+            }
+            else {
+                System.out.println("No crop available to harvest from Crop Row: " + cropRowIndex);
             }
         }
     }
@@ -51,17 +49,7 @@ public class Tractor extends Vehicle {
     }
 
     @Override
-    public void setMounted(boolean mount) {
-
-    }
-
-    @Override
-    public Boolean isMounted() {
-        return null;
-    }
-
-    @Override
     public Object makeNoise() {
-        return null;
+        return "CHUG CHUG";
     }
 }
