@@ -12,7 +12,7 @@ public class WeeklyScheduleTests {
         //when
 
         //assert
-        //Assert.assertTrue();
+        Assert.assertTrue(week.dailyActivities());
     }
 
     @Test
@@ -23,7 +23,7 @@ public class WeeklyScheduleTests {
         //when
 
         //assert
-        //Assert.assertTrue();
+        Assert.assertTrue(week.sunday());
     }
 
     @Test
@@ -34,7 +34,7 @@ public class WeeklyScheduleTests {
         //when
 
         //assert
-        //Assert.assertTrue();
+        Assert.assertTrue(week.monday());
     }
 
     @Test
@@ -45,7 +45,7 @@ public class WeeklyScheduleTests {
         //when
 
         //assert
-        //Assert.assertTrue();
+        Assert.assertTrue(week.tuesday());
     }
 
     @Test
@@ -56,7 +56,7 @@ public class WeeklyScheduleTests {
         //when
 
         //assert
-        //Assert.assertTrue();
+        Assert.assertTrue(week.wednesday());
     }
 
     @Test
@@ -67,7 +67,7 @@ public class WeeklyScheduleTests {
         //when
 
         //assert
-        //Assert.assertTrue();
+        Assert.assertTrue(week.thursday());
     }
 
     @Test
@@ -78,7 +78,7 @@ public class WeeklyScheduleTests {
         //when
 
         //assert
-        //Assert.assertTrue();
+        Assert.assertTrue(week.friday());
     }
 
     @Test
@@ -89,6 +89,6 @@ public class WeeklyScheduleTests {
         //when
 
         //assert
-        //Assert.assertTrue();
+        Assert.assertTrue(week.saturday());
     }
 }

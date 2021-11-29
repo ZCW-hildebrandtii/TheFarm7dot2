@@ -16,7 +16,7 @@ import java.util.List;
 
 public class CropDuster extends Vehicle implements Aircraft {
 
-    private  String valueOperate = "The Tractor Machine is starting operation!";
+    private  String valueOperate = "The CropDuster is starting operation!";
     private  String valueFly = "The CropDuster Machine is FLYING over the field!!";
 
     public CropDuster() {
