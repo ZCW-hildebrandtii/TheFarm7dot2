@@ -7,6 +7,10 @@ public class Field {
 
     private List<CropRow> cropRows;
 
+    public Field() {
+
+    }
+
     public Field(List<CropRow> cropRows) {
         this.cropRows = new ArrayList<>();
     }
@@ -15,10 +19,6 @@ public class Field {
         for (int i = 0; i < noOfCropRow; i++) {
             this.cropRows.add(new CropRow());
         }
-    }
-
-    public Field() {
-
     }
 
     public void add(List<CropRow> cropRows) {
