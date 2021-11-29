@@ -5,6 +5,7 @@ import com.zipcodewilmington.froilansfarm.person.Person;
 import com.zipcodewilmington.froilansfarm.person.Pilot;
 
 public class FarmHouse {
+
     private Person Froilan;
     private Person Froilanda;
 
@@ -13,4 +14,11 @@ public class FarmHouse {
         this.Froilanda = new Pilot();
     }
 
+    public Person getFroilan() {
+        return this.Froilan;
+    }
+
+    public Person getFroilanda() {
+        return this.Froilanda;
+    }
 }
