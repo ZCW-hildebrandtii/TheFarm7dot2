@@ -104,8 +104,8 @@ public class PilotTest {
         boolean expected = true;
 
         //When
-        Farmer farmer = new Farmer();
-        farmer.mount(horse);
+        Pilot pilot = new Pilot();
+        pilot.mount(horse);
         boolean actual = horse.isMounted();
 
         //Then
@@ -119,8 +119,8 @@ public class PilotTest {
         boolean expected = false;
 
         //When
-        Farmer farmer = new Farmer();
-        farmer.dismount(horse);
+        Pilot pilot = new Pilot();
+        pilot.dismount(horse);
         boolean actual = horse.isMounted();
 
         //Then
@@ -143,7 +143,7 @@ public class PilotTest {
         froilan.plant(new CornStalk(), cropRow);
 
         //When - Plant three cornstalk in crop row
-        froilanda.fertilize(new CropDuster(null, null, null), cropField);
+        froilanda.fertilize(new CropDuster(), cropField);
 
         //Then
         Assert.assertEquals(5, cropField.getCropRows().size());
