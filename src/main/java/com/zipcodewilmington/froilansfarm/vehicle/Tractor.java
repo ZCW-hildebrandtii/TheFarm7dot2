@@ -2,6 +2,7 @@ package com.zipcodewilmington.froilansfarm.vehicle;
 import com.zipcodewilmington.froilansfarm.crop.Crop;
 import com.zipcodewilmington.froilansfarm.farm.CropRow;
 import com.zipcodewilmington.froilansfarm.farm.Farm;
+import com.zipcodewilmington.froilansfarm.farm.Field;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
 
@@ -29,18 +30,17 @@ public class Tractor extends Vehicle {
 
     }
 
-    public Crop harvest(Crop crop) {
+    @Override
+    public void operate(Farm farm) {
 
-        System.out.println(valueHarvest);
-        crop.setHasBeenHarvested(true);
-        return crop;
-    }
-
-
-    public List<Edible> operate(CropRow cropRow) {
-
-        List<Edible> edibles = cropRow.harvestCropRow();
-        return edibles;
+        for (Field field : farm.getFields()) {
+            for (CropRow cropRow : field.getCropRows()) {
+                for (Crop crop : cropRow.getCropRow()) {
+                    System.out.println("Harvesting " + crop.getClass());
+                    crop.setHasBeenHarvested(true);
+                }
+            }
+        }
     }
 
 
@@ -63,10 +63,5 @@ public class Tractor extends Vehicle {
     @Override
     public Object makeNoise() {
         return null;
-    }
-
-    @Override
-    public void operate(Farm farm) {
-
     }
 }

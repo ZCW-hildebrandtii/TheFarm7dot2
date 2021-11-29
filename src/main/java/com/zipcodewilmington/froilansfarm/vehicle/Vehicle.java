@@ -1,5 +1,6 @@
 package com.zipcodewilmington.froilansfarm.vehicle;
 
+import com.zipcodewilmington.froilansfarm.farm.Farm;
 import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
 import com.zipcodewilmington.froilansfarm.interfaces.NoiseMaker;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
@@ -22,9 +23,7 @@ public abstract class Vehicle implements FarmVehicle, Rideable, NoiseMaker {
         this.isMounted = isMounted;
     }
 
-    public String operate() {
-        return valueOperate;
-    }
+    public abstract void operate(Farm farm);
 
     public Boolean isMounted() {
         return true;
