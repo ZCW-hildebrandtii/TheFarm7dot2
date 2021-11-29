@@ -86,7 +86,11 @@ public class CropRowTest {
         cropRow.addCrop(carrotPlant);
         cropRow.addCrop(cornStalk);
         cropRow.addCrop(pepperPlant);
-        Integer actual = cropRow.harvestCropRow().size();
+
+        cropRow.fertilizeCropRow();
+
+        List<Edible> crops = cropRow.harvestCropRow();
+        Integer actual = crops.size();
 
         // Then
         Assert.assertEquals(expected, actual);
