@@ -2,7 +2,6 @@ package com.zipcodewilmington.froilansfarm.farm;
 
 import com.zipcodewilmington.froilansfarm.edibles.*;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
-import com.zipcodewilmington.froilansfarm.interfaces.Storage;
 import com.zipcodewilmington.froilansfarm.vehicle.CropDuster;
 import com.zipcodewilmington.froilansfarm.vehicle.Tractor;
 
@@ -146,5 +145,4 @@ public final class Farm {
         }
         return INSTANCE;
     }
-
 }

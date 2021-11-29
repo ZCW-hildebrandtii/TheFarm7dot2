@@ -5,7 +5,6 @@ import com.zipcodewilmington.froilansfarm.farm.Farm;
 import com.zipcodewilmington.froilansfarm.farm.Field;
 import com.zipcodewilmington.froilansfarm.interfaces.Aircraft;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
-import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
 
 import java.util.List;
 
@@ -18,30 +17,45 @@ import java.util.List;
 public class CropDuster extends Vehicle implements Aircraft {
 
     private  String valueOperate = "The Tractor Machine is starting operation!";
-    private  String valueHarvest = "The Tractor is harvesting";
     private  String valueFly = "The CropDuster Machine is FLYING over the field!!";
-
-    public CropDuster (String valueOperate, String valueHarvest, String valueFly) {
-        this.valueOperate = valueOperate;
-        this.valueHarvest = valueHarvest;
-        this.valueFly=valueFly;
-    }
 
     public CropDuster() {
 
     }
 
-    public List<Edible> operate(CropRow cropRow) {
+    @Override
+    public void operate(Farm farm) {
 
-        return cropRow.harvestCropRow();
+        System.out.println(valueOperate);
+        int cropRowIndex = 1;
+        for (CropRow cropRow : farm.getField().getCropRows()) {
+
+            if (cropRow.getCropRow().size() > 0) {
+                List<Edible> harvestedEdibles = cropRow.harvestCropRow();
+                System.out.println(harvestedEdibles.size() + " " + harvestedEdibles.get(0).getClass().getSimpleName() + " produced from Crop Row: " + cropRowIndex);
+                for (Edible edible : harvestedEdibles) {
+                    farm.addFood(edible);
+                }
+            }
+            else {
+                System.out.println("No crop available to harvest from Crop Row: " + cropRowIndex);
+            }
+        }
     }
 
 
     public String fly(Field field) {
+
+        System.out.println(valueFly);
         int rowIndex = 1;
         for (CropRow cropRow : field.getCropRows()) {
-            cropRow.fertilizeCropRow();
-            System.out.println(cropRow.cropRowSize() + " crops have been fertilized in CropRow: " + rowIndex++);
+            if (cropRow.getCropRow().size() > 0) {
+                cropRow.fertilizeCropRow();
+                System.out.println(cropRow.cropRowSize() + " " + cropRow.getCropRow().get(0).getClass().getSimpleName() + " crops have been fertilized in CropRow: " + rowIndex++);
+            }
+            else {
+                System.out.println("No crops available to fertilize in CropRow: " + rowIndex++);
+            }
         }
         return "All crops have been fertilized in CropRow";
     }
@@ -55,15 +69,5 @@ public class CropDuster extends Vehicle implements Aircraft {
     @Override
     public Object makeNoise() {
         return null;
-    }
-
-    @Override
-    public void setMounted(boolean mount) {
-
-    }
-
-    @Override
-    public void operate(Farm farm) {
-
     }
 }

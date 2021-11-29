@@ -2,9 +2,11 @@ package com.zipcodewilmington.froilansfarm.person;
 
 import com.zipcodewilmington.froilansfarm.crop.Crop;
 import com.zipcodewilmington.froilansfarm.farm.CropRow;
-import com.zipcodewilmington.froilansfarm.interfaces.*;
-
-import java.util.List;
+import com.zipcodewilmington.froilansfarm.farm.Farm;
+import com.zipcodewilmington.froilansfarm.interfaces.Botanist;
+import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
+import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
+import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 
 public class Farmer extends Person implements Botanist, Rider {
 
@@ -32,7 +34,7 @@ public class Farmer extends Person implements Botanist, Rider {
         rideable.setMounted(false);
     }
 
-//    public List<Edible> harvest(FarmVehicle farmVehicle, CropRow cropRow) {
-//        return farmVehicle.operate(cropRow);
-//    }
+    public void harvest(FarmVehicle farmVehicle, Farm farm) {
+        farmVehicle.operate(farm);
+    }
 }

@@ -7,14 +7,11 @@ import com.zipcodewilmington.froilansfarm.edibles.Carrot;
 import com.zipcodewilmington.froilansfarm.edibles.EarOfCorn;
 import com.zipcodewilmington.froilansfarm.edibles.Tomato;
 import com.zipcodewilmington.froilansfarm.farm.CropRow;
-import com.zipcodewilmington.froilansfarm.farm.Field;
-import com.zipcodewilmington.froilansfarm.interfaces.Edible;
+import com.zipcodewilmington.froilansfarm.farm.Farm;
 import com.zipcodewilmington.froilansfarm.vehicle.CropDuster;
 import com.zipcodewilmington.froilansfarm.vehicle.Tractor;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.List;
 
 public class FarmerTest {
 
@@ -98,6 +95,20 @@ public class FarmerTest {
     }
 
     @Test
+    public void test_eat_non_edible() {
+        //Given
+        Farmer farmer = new Farmer();
+        EarOfCorn earOfCorn = new EarOfCorn();
+        earOfCorn.setEdible(false);
+
+        //When
+        farmer.eat(earOfCorn);
+
+        //Then
+        Assert.assertTrue(earOfCorn.isEdible());
+    }
+
+    @Test
     public void test_mount_rideable(){
         //Given
         Horse horse = new Horse();
@@ -128,6 +139,36 @@ public class FarmerTest {
     }
 
     @Test
+    public void test_mount_vehicle(){
+        //Given
+        Tractor tractor = new Tractor();
+        boolean expected = true;
+
+        //When
+        Farmer farmer = new Farmer();
+        farmer.mount(tractor);
+        boolean actual = tractor.isMounted();
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_dismount_vehicle(){
+        //Given
+        Tractor tractor = new Tractor();
+        boolean expected = false;
+
+        //When
+        Farmer farmer = new Farmer();
+        farmer.dismount(tractor);
+        boolean actual = tractor.isMounted();
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
     public void test_plant_cornstalk(){
         //Given
         CornStalk cornStalk = new CornStalk();
@@ -147,29 +188,30 @@ public class FarmerTest {
         }
     }
 
-//    @Test
-//    public void test_harvest_cornstalk(){
-//        //Given - Plant 5 corn stlaks in the given crop-row and fertilize it
-//        Farmer froilan = new Farmer("Froilan");
-//        Pilot froilanda = new Pilot("Froilanda");
-//
-//        Field cropField = new Field(5);
-//        CropRow cropRow = cropField.getCropRows().get(0);
-//        froilan.plant(new CornStalk(), cropRow);
-//        froilan.plant(new CornStalk(), cropRow);
-//        froilan.plant(new CornStalk(), cropRow);
-//        froilan.plant(new CornStalk(), cropRow);
-//        froilan.plant(new CornStalk(), cropRow);
-//        froilanda.fertilize(new CropDuster(null, null, null), cropField);
-//
-//
-//        //When - Plant three cornstalk in crop row
-//        List<Edible> corns = froilan.harvest(new Tractor("", ""), cropRow);
-//
-//        //Then
-//        Assert.assertEquals(5, corns.size());
-//        for (Edible edible : corns) {
-//            Assert.assertEquals("EarOfCorn", edible.getClass().getSimpleName());
-//        }
+    @Test
+    public void test_harvest_cornstalk() {
+        //Given - Plant 5 corn stlaks in the given crop-row and fertilize it
+        Farmer froilan = new Farmer("Froilan");
+        Pilot froilanda = new Pilot("Froilanda");
+
+        Farm farm = Farm.getInstance();
+        CropRow cropRow = farm.getField().getCropRows().get(0);
+        froilan.plant(new CornStalk(), cropRow);
+        froilan.plant(new CornStalk(), cropRow);
+        froilan.plant(new CornStalk(), cropRow);
+        froilan.plant(new CornStalk(), cropRow);
+        froilan.plant(new CornStalk(), cropRow);
+        froilanda.fertilize(new CropDuster(), farm.getField());
+
+
+        //When - Plant three cornstalk in crop row
+        froilan.harvest(new Tractor(), farm);
+
+        //Then
+        Assert.assertEquals(5, farm.getField().getCropRows().size());
+        for (CropRow cropRowItr : farm.getField().getCropRows()) {
+            Assert.assertEquals(0, cropRowItr.cropRowSize().intValue());
+        }
+    }
 }
 
