@@ -1,26 +1,27 @@
 package com.zipcodewilmington.froilansfarm.animal;
 
+import com.zipcodewilmington.froilansfarm.crop.CarrotPlant;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 
 public class Horse extends Animal implements Rideable {
-    @Override
-    public void eat(Edible edible) {
 
-    }
+    private boolean mounted;
 
     @Override
-    public void makeNoise() {
-
+    public String makeNoise() {
+        return "neigh";
     }
 
     @Override
     public Boolean isMounted() {
-        return null;
+
+        return mounted;
     }
 
     @Override
-    public Boolean isDismounted() {
-        return null;
+    public void setMounted(boolean mount) {
+        this.mounted = mount;
     }
+
 }
