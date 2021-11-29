@@ -31,7 +31,7 @@ public class ChickenTest {
         Chicken chicken = new Chicken();
 
         //when
-        chicken.setEggFertilized(true);
+        chicken.setHasBeenFertilized(true);
         Edible actual = chicken.yield();
 
         //assert
@@ -42,11 +42,12 @@ public class ChickenTest {
     public void eatTest() {
         //given
         Chicken chicken = new Chicken();
-        CornStalk corn = new CornStalk();
+        CornStalk cornStalk = new CornStalk();
 
         //when
-        corn.setHasBeenHarvested(true);
-        Boolean actual = chicken.eat(null);
+        cornStalk.setHasBeenFertilized(true);
+        Edible earOfCorn = cornStalk.yield();
+        Boolean actual = chicken.eat(earOfCorn);
 
         //assert
         Assert.assertEquals(true, actual);

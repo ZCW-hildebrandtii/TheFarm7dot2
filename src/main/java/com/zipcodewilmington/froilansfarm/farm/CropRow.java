@@ -45,7 +45,8 @@ public class CropRow {
                 System.out.println("Crop Row is not ready to harvest");
                 return null;
             }
-            System.out.println("Harvesting " + crop.getClass().getSimpleName() + " from CropRow and produced " + edible.getClass().getSimpleName());
+            System.out.println("Harvesting " + crop.getClass().getSimpleName()
+                    + " from CropRow and produced " + edible.getClass().getSimpleName());
             edibleList.add(edible);
         }
         cropRow.clear();

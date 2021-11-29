@@ -5,16 +5,20 @@ import java.util.List;
 
 public class Field {
 
-    List<CropRow> cropRows = new ArrayList<>();
+    private List<CropRow> cropRows;
 
     public Field(List<CropRow> cropRows) {
-        this.cropRows = cropRows;
+        this.cropRows = new ArrayList<>();
     }
 
     public Field(int noOfCropRow) {
         for (int i = 0; i < noOfCropRow; i++) {
             this.cropRows.add(new CropRow());
         }
+    }
+
+    public Field() {
+
     }
 
     public void add(List<CropRow> cropRows) {

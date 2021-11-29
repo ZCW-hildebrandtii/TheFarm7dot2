@@ -1,13 +1,16 @@
 package com.zipcodewilmington.froilansfarm;
 
 public class WeeklySchedule {
-    /*TODO : Every morning, Froilan and Froilanda:
+
+    public void dailyActivities() {
+        /*TODO : Every morning, Froilan and Froilanda:
             - Ride each HORSE in each STABLE
             - Feed each HORSE 3 EAROFCORN
             - Breakfast:
                 - Froilan eats 1 EAROFCORN, 2 TOMATO, 5 EGG
                 - FROILANDA eats 2 EAROFCORN, 1 TOMATO, 2 EGG
      */
+    }
 
     public void sunday() {
         //TODO : Froilan plants 3 Crops (CORNSTALK, TOMATOPLANT, POTATOPLANT) in CropRow 1, 2, 3

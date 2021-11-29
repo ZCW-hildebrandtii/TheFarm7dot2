@@ -1,6 +1,7 @@
 package com.zipcodewilmington.froilansfarm.interfaces;
 
 import com.zipcodewilmington.froilansfarm.farm.CropRow;
+import com.zipcodewilmington.froilansfarm.farm.Farm;
 
 import java.util.List;
 
@@ -10,5 +11,5 @@ public interface FarmVehicle {
     //Here usually tractor harvesting will be happening by croprow or by field so i thot like will go by cropRow and yield the edibles
     //
     // Comment : meaning that FarmVehicle can ONLY Operate ,but Tractor can operate and harvest.
-    List<Edible> operate(CropRow cropRow);
+    void operate(Farm farm);
 }

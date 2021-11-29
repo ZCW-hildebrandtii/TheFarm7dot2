@@ -1,6 +1,7 @@
 package com.zipcodewilmington.froilansfarm.vehicle;
 
 import com.zipcodewilmington.froilansfarm.farm.CropRow;
+import com.zipcodewilmington.froilansfarm.farm.Farm;
 import com.zipcodewilmington.froilansfarm.farm.Field;
 import com.zipcodewilmington.froilansfarm.interfaces.Aircraft;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
@@ -14,7 +15,7 @@ import java.util.List;
 // 2b. Meaning that CropDuster can fertilize.
 
 
-public class CropDuster implements Aircraft, FarmVehicle {
+public class CropDuster extends Vehicle implements Aircraft {
 
     private  String valueOperate = "The Tractor Machine is starting operation!";
     private  String valueHarvest = "The Tractor is harvesting";
@@ -24,6 +25,10 @@ public class CropDuster implements Aircraft, FarmVehicle {
         this.valueOperate = valueOperate;
         this.valueHarvest = valueHarvest;
         this.valueFly=valueFly;
+    }
+
+    public CropDuster() {
+
     }
 
     public List<Edible> operate(CropRow cropRow) {
@@ -47,4 +52,18 @@ public class CropDuster implements Aircraft, FarmVehicle {
         return "CropDuster{}";
     }
 
+    @Override
+    public Object makeNoise() {
+        return null;
+    }
+
+    @Override
+    public void setMounted(boolean mount) {
+
+    }
+
+    @Override
+    public void operate(Farm farm) {
+
+    }
 }
