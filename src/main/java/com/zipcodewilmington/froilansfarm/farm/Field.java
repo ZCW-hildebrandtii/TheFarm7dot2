@@ -16,6 +16,7 @@ public class Field {
     }
 
     public Field(int noOfCropRow) {
+        this.cropRows = new ArrayList<>();
         for (int i = 0; i < noOfCropRow; i++) {
             this.cropRows.add(new CropRow());
         }
