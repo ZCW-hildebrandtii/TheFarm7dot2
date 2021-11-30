@@ -15,9 +15,10 @@ public class Horse extends Animal implements Rideable {
 
     @Override
     public Boolean isMounted() {
-
         return mounted;
     }
+
+
 
     @Override
     public void setMounted(boolean mount) {

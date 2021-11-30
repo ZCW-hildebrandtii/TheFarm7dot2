@@ -54,14 +54,4 @@ public class HorseTest {
     public void isMountedTestFalse() {
 
     }
-
-    @Test
-    public void isDismountedTest() {
-
-    }
-
-    @Test
-    public void isDismountedTestFalse() {
-
-    }
 }
