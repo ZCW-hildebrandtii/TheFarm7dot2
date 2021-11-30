@@ -25,4 +25,8 @@ public class Horse extends Animal implements Rideable {
         this.mounted = mount;
     }
 
+    @Override
+    public Boolean eat(Edible... edible) {
+        return null;
+    }
 }

@@ -3,19 +3,16 @@ package com.zipcodewilmington.froilansfarm.person;
 import com.zipcodewilmington.froilansfarm.crop.Crop;
 import com.zipcodewilmington.froilansfarm.farm.CropRow;
 import com.zipcodewilmington.froilansfarm.farm.Farm;
-import com.zipcodewilmington.froilansfarm.interfaces.Botanist;
-import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
-import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
-import com.zipcodewilmington.froilansfarm.interfaces.Rider;
+import com.zipcodewilmington.froilansfarm.interfaces.*;
 
 public class Farmer extends Person implements Botanist, Rider {
 
     public Farmer() {
-
+        super("");
     }
 
     public Farmer(String name) {
-        this.name = name;
+        super(name);
     }
 
     @Override
@@ -36,5 +33,16 @@ public class Farmer extends Person implements Botanist, Rider {
 
     public void harvest(FarmVehicle farmVehicle, Farm farm) {
         farmVehicle.operate(farm);
+    }
+
+    @Override
+    public Boolean eat(Edible... edible) {
+
+        return null;
+    }
+
+    @Override
+    public String makeNoise() {
+        return null;
     }
 }

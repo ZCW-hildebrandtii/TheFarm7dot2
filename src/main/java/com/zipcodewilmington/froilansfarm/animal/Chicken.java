@@ -32,4 +32,9 @@ public class Chicken extends Animal implements Produce {
     public boolean hasBeenFertilized() {
         return this.hasBeenFertilized;
     }
+
+    @Override
+    public Boolean eat(Edible... edible) {
+        return null;
+    }
 }

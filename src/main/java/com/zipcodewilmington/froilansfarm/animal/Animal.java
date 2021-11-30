@@ -9,15 +9,4 @@ public abstract class Animal implements Eater, NoiseMaker {
     public Animal() {
 
     }
-
-    public Boolean eat(Edible edible) {
-        if (edible == null) {
-            return false;
-        }
-        if (edible.isEdible()) {
-            edible.setEdible(false);
-            return true;
-        }
-        return false;
-    }
 }

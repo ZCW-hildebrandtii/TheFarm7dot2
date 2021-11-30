@@ -49,7 +49,7 @@ public class Tractor extends Vehicle {
     }
 
     @Override
-    public Object makeNoise() {
+    public String makeNoise() {
         return "CHUG CHUG";
     }
 }

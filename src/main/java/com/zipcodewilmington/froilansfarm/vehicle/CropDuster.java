@@ -67,7 +67,7 @@ public class CropDuster extends Vehicle implements Aircraft {
     }
 
     @Override
-    public Object makeNoise() {
+    public String makeNoise() {
         return null;
     }
 }
